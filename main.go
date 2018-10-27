@@ -1,7 +1,7 @@
 package main
 
 import (
-	utils "github.com/mpstewart/update-aws-security-groups/utils"
+	"github.com/mpstewart/update-aws-security-groups/utils"
 	"log"
 	"os"
 )

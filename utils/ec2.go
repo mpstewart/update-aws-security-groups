@@ -31,7 +31,7 @@ func GetSvc() (s *ec2.EC2) {
 // Given a port, call Amazon and ask them to update the security rules for that
 // port
 func UpdateRuleForPort(p Port) {
-	input := asAuthorizeSecurityGroupIngressInput(p)
+	input := AuthorizeSecurityGroupIngressInput(p)
 
 	amazonSvc := GetSvc()
 
@@ -57,7 +57,7 @@ func UpdateRuleForPort(p Port) {
 // Amazon's AWS SDK uses a special struct to track the input arguments for each
 // of its functions, which is a little weird, but this method generates that for
 // a given port.
-func asAuthorizeSecurityGroupIngressInput(p Port) *ec2.AuthorizeSecurityGroupIngressInput {
+func AuthorizeSecurityGroupIngressInput(p Port) *ec2.AuthorizeSecurityGroupIngressInput {
 	config := GetConfig()
 	ipa := config.HomeIP
 	groupID := config.GroupID
